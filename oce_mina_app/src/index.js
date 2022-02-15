@@ -2,6 +2,7 @@ import * as React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
 import "./index.css";
+import "./WordPage/WordPage.css"
 import App from "./App";
 
 import reportWebVitals from "./reportWebVitals";

@@ -34,7 +34,7 @@ export default function WordPage() {
 
   function remove(word) {
     let rep = window.confirm(
-      `Etes-vous sur de vouloir supprimer le word ${word.titre} ${word.description}`
+      `Etes-vous sur de vouloir supprimer le mot`
     );
     if (rep) {
      wordProvider.remove(word);
@@ -54,29 +54,19 @@ export default function WordPage() {
         </Row>
 
         <Row>
-          <Col md={6}>
-           
-            <input
-              type="text"
-              placeholder="rechercher un mot "
-              className="form-control"
-              onChange={(e) => {
-                setSearch(e.target.value);
-              }}
-            />
-          </Col>
 
           <Col md={12}>
-            <div className="button-add">
+            <div>
               <Button as={Link} to="/AddWordPage">
                 Ajouter un mot
               </Button>
             </div>
 
-            <Table striped bordered hover variant="dark">
+            <Table className="table-t" striped bordered hover variant="dark">
               <thead>
                 <tr>
                   <th>Mots</th>
+                  <br></br>
                   <th>Modifier</th>
                   <th>Supprimer</th>
                 </tr>
@@ -84,15 +74,6 @@ export default function WordPage() {
 
               <tbody>
                 {word
-                  .filter((val) => {
-                    if (search === "") {
-                      return val;
-                    } else if (
-                      val.titre.toLowerCase().includes(search.toLowerCase()) 
-                    ) {
-                      return val;
-                    }
-                  })
                   .map((word, indice) => (
                     <tr key={"word-" + word.id}>
                       <td>{word.mots}</td>
