@@ -11,7 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddWordPage from "./AddWordpage/AddWordPage.jsx";
 
 import EditWordPage from "./EditWordPage/EditWordPage";
-import WordPage from "./WordPage/WordPage"
+import WordPage from "./WordPage/WordPage";
+import NavBar from"./Navbar/Navbar"
 
 
 
@@ -21,12 +22,14 @@ ReactDOM.render(
     <main>
       <Router>
         <header className="mb-5">
+          <NavBar></NavBar>
          
         </header>
 
         <Routes>
         
           <Route path="/App" element={<App />} />
+        
           <Route path="/AddWordPage" element={<AddWordPage />} />
        
           <Route path="/WordPage/:id" element={<WordPage />} />

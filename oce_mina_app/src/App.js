@@ -28,7 +28,7 @@ class App extends React.Component {
         'intriguant'
       ],
       mot: "",
-      etatPartie: 0, //0 = en cours, 1=gagné, 2=perdu
+      etatPartie: 0, 
       barreVie: barreVieInitial,
     };
   }
@@ -45,18 +45,16 @@ class App extends React.Component {
     let lettreAppuyee = event.target.firstChild.data;
     let toReturn = {}
 
-    // Vérifie si le joueur a gagné
+   
     if (this.computeDisplay(this.state.mot, this.state.lettresEssayees.add(lettreAppuyee)) === this.state.mot) {
       toReturn.etatPartie = 1;
     }
 
     this.setState((prevState) => {
-      // On vérifie si la lettre appuyée est valide ou non
-      // pour ensuite enlever de la vie au joueur
+   
       if (!prevState.mot.includes(lettreAppuyee)) {
         toReturn.barreVie = prevState.barreVie - (barreVieInitial / nombreDeVies);
 
-        // Si le nombre de vie est égal à 0, changer l'état de la partie
         if (toReturn.barreVie <= 0) {
           console.log('Perdu')
           toReturn.etatPartie = 2;
@@ -80,7 +78,6 @@ class App extends React.Component {
 
   }
 
-  //On calcule le texte restant à afficher
   computeDisplay(phrase, usedLetters) {
     return phrase.replace(/\w/g,
       (letter) => (usedLetters.has(letter) ? letter : '_')
@@ -88,7 +85,7 @@ class App extends React.Component {
   }
 
   render() {
-    // On transforme l'array de lettres du state en divs pour l'affichage
+ 
     let lettres = this.state.lettresDisponibles.map(x => (
       <div key={x}
         className={this.state.lettresEssayees.has(x) ? "lettre lettre-utilisee" : "lettre lettre-inutilisee"}
