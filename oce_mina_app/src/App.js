@@ -1,8 +1,12 @@
 import React from 'react';
 import './App.css';
+import {Button} from "react-bootstrap"
+import { Link } from "react-router-dom";
+
 
 const nombreDeVies = 8;
 const barreVieInitial = 10;
+
 
 class App extends React.Component {
 
@@ -60,10 +64,12 @@ class App extends React.Component {
           toReturn.etatPartie = 2;
         }
       }
+      
 
       return {
         lettresEssayees: prevState.lettresEssayees.add(lettreAppuyee),
         ...toReturn
+        
       }
     })
   }
@@ -92,6 +98,8 @@ class App extends React.Component {
         onClick={!this.state.lettresEssayees.has(x) ? this.handleClick : null}>
         {x}
       </div>));
+    
+      
 
     let boutonRejouer = ['R','e','j','o','u','e','r','?'].map((x,index) => (
       <div key={index}
@@ -135,7 +143,8 @@ class App extends React.Component {
         </div>
 
         <br />
-
+     
+       <Button as= {Link} to ="/WordPage/:id">Suppimer des mots</Button>
       </div>
     );
   }
