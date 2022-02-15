@@ -11,7 +11,22 @@ class App extends React.Component {
       // On crée un array avec toutes les lettres disponibles
       lettresDisponibles: [..."abcdefghijklmnopqrstuvwxyz"],
       lettresEssayees: new Set(),
-      tousLesMots: ['informatique', 'programmation', 'clavier', 'ordinateur', 'chargeur', 'souris', 'onglet', 'intelligent', 'patient', 'innovant', 'recherche', 'calme', 'intriguant'],
+      tousLesMots: 
+      [
+        'informatique', 
+        'programmation', 
+        'clavier', 
+        'ordinateur', 
+        'chargeur', 
+        'souris', 
+        'onglet', 
+        'intelligent', 
+        'patient', 
+        'innovant', 
+        'recherche', 
+        'calme', 
+        'intriguant'
+      ],
       mot: "",
       etatPartie: 0, //0 = en cours, 1=gagné, 2=perdu
       barreVie: barreVieInitial,
@@ -30,7 +45,7 @@ class App extends React.Component {
     let lettreAppuyee = event.target.firstChild.data;
     let toReturn = {}
 
-    // À FAIRE : Rendre plus claire cette horreur de ligne qui vérifie si le joueur a gagné
+    // Vérifie si le joueur a gagné
     if (this.computeDisplay(this.state.mot, this.state.lettresEssayees.add(lettreAppuyee)) === this.state.mot) {
       toReturn.etatPartie = 1;
     }
